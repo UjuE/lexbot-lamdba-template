@@ -37,7 +37,7 @@ dependencies {
 
 def fetchAwsCredentials = {
     try {
-        return new ProfileCredentialsProvider().credentials
+        return new EnvironmentVariableCredentialsProvider().credentials
     } catch (Exception e) {
         logger.debug('Unable to retrieve AWS credentials from profile, publishing to S3 will not be available.', e)
         return null

@@ -1,5 +1,5 @@
-import com.amazonaws.auth.*
-import com.amazonaws.auth.profile.*
+import com.amazonaws.auth.AWSCredentials
+import com.amazonaws.auth.EnvironmentVariableCredentialsProvider
 
 buildscript {
     repositories {
@@ -48,11 +48,22 @@ AWSCredentials awsCredentials = fetchAwsCredentials()
 publishing {
     repositories {
         maven {
-            url "s3://repo.ujuezeoke.com/releases"
+            url "s3://repo.ujuezeoke.com/snapshot"
             credentials(AwsCredentials) {
                 accessKey = awsCredentials.AWSAccessKeyId
                 secretKey = awsCredentials.AWSSecretKey
             }
         }
     }
+
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'com.ujuezeoke.bot'
+            artifactId 'lexbot-lambda-template'
+            version "$System.env.TRAVIS_BUILD_NUMBER"
+            from components.java
+        }
+    }
 }
+
+

@@ -1,6 +1,8 @@
 package com.ujuezeoke.bot.template.model.response.model.dialogaction;
 
 import com.ujuezeoke.bot.template.model.response.model.DialogActionType;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessage;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.ResponseCard;
 
 /**
  * Created by Obianuju Ezeoke on 10/06/2017.

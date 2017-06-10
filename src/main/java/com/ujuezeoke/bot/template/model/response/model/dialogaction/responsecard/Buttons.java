@@ -1,4 +1,4 @@
-package com.ujuezeoke.bot.template.model.response.model.dialogaction;
+package com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard;
 
 /**
  * Created by Obianuju Ezeoke on 10/06/2017.

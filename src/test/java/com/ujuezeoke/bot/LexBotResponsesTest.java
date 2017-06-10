@@ -4,10 +4,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ujuezeoke.bot.template.model.response.LexBotResponseBuilder;
 import com.ujuezeoke.bot.template.model.response.model.LexBotResponse;
-import com.ujuezeoke.bot.template.model.response.model.dialogaction.Buttons;
-import com.ujuezeoke.bot.template.model.response.model.dialogaction.DialogActionMessageContentType;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.Buttons;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessageContentType;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.FulfillmentState;
-import com.ujuezeoke.bot.template.model.response.model.dialogaction.GenericAttachments;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.GenericAttachments;
 import org.junit.Test;
 
 import java.net.URL;

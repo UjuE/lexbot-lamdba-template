@@ -19,4 +19,8 @@ public class LexBotResponseBuilder {
     public LexResponseWithElicitIntentDialogActionBuilder buildElicitIntentDialogActionResponse() {
         return new LexResponseWithElicitIntentDialogActionBuilder();
     }
+
+    public LexResponseWithElicitSlotDialogActionBuilder buildElicitSlotDialogActionResponse() {
+        return new LexResponseWithElicitSlotDialogActionBuilder();
+    }
 }

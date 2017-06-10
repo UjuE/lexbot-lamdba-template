@@ -15,4 +15,8 @@ public class LexBotResponseBuilder {
     public LexResponseWithDelegateDialogActionBuilder buildDelegateDialogActionResponse() {
         return new LexResponseWithDelegateDialogActionBuilder();
     }
+
+    public LexResponseWithElicitIntentDialogActionBuilder buildElicitIntentDialogActionResponse() {
+        return new LexResponseWithElicitIntentDialogActionBuilder();
+    }
 }

@@ -1,10 +1,7 @@
-package com.ujuezeoke.bot;
+package com.ujuezeoke.bot.template.model.response;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ujuezeoke.bot.template.model.Slot;
-import com.ujuezeoke.bot.template.model.response.LexBotResponseBuilder;
-import com.ujuezeoke.bot.template.model.response.model.LexBotResponse;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.Buttons;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessageContentType;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.FulfillmentState;

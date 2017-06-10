@@ -1,7 +1,5 @@
 package com.ujuezeoke.bot.template.model.response;
 
-import com.ujuezeoke.bot.template.model.Slot;
-import com.ujuezeoke.bot.template.model.response.model.LexBotResponse;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.ElicitSlotDialogAction;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessage;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessageContentType;
@@ -48,7 +46,7 @@ public class LexResponseWithElicitSlotDialogActionBuilder {
     }
 
     public LexBotResponse build() {
-        return new DialogActionOnlyLexBotResponse(new ElicitSlotDialogAction(
+        return new LexBotResponse(new ElicitSlotDialogAction(
                 message,
                 intentName,
                 slots,

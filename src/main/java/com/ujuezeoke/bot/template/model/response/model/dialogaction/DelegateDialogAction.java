@@ -1,6 +1,6 @@
 package com.ujuezeoke.bot.template.model.response.model.dialogaction;
 
-import com.ujuezeoke.bot.template.model.Slot;
+import com.ujuezeoke.bot.template.model.response.Slot;
 import com.ujuezeoke.bot.template.model.response.model.DialogActionType;
 
 import java.util.List;

@@ -1,7 +1,5 @@
 package com.ujuezeoke.bot.template.model.response;
 
-import com.ujuezeoke.bot.template.model.Slot;
-import com.ujuezeoke.bot.template.model.response.model.LexBotResponse;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.DelegateDialogAction;
 
 import java.util.ArrayList;
@@ -20,6 +18,6 @@ public class LexResponseWithDelegateDialogActionBuilder {
     }
 
     public LexBotResponse build() {
-        return new DialogActionOnlyLexBotResponse(new DelegateDialogAction(slots));
+        return new LexBotResponse(new DelegateDialogAction(slots));
     }
 }

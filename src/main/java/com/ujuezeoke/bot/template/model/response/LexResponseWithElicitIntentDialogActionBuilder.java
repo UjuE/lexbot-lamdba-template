@@ -1,6 +1,5 @@
 package com.ujuezeoke.bot.template.model.response;
 
-import com.ujuezeoke.bot.template.model.response.model.LexBotResponse;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.ElicitIntentDialogAction;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessage;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessageContentType;
@@ -26,6 +25,6 @@ public class LexResponseWithElicitIntentDialogActionBuilder {
     }
 
     public LexBotResponse build() {
-        return new DialogActionOnlyLexBotResponse(new ElicitIntentDialogAction(message, responseCard));
+        return new LexBotResponse(new ElicitIntentDialogAction(message, responseCard));
     }
 }

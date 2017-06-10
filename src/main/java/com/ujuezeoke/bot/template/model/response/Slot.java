@@ -1,4 +1,4 @@
-package com.ujuezeoke.bot.template.model;
+package com.ujuezeoke.bot.template.model.response;
 
 /**
  * Created by Obianuju Ezeoke on 10/06/2017.

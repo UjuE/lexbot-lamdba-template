@@ -1,7 +1,5 @@
 package com.ujuezeoke.bot.template.model.response;
 
-import com.ujuezeoke.bot.template.model.Slot;
-import com.ujuezeoke.bot.template.model.response.model.LexBotResponse;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.ConfirmIntentDialogAction;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessage;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessageContentType;
@@ -45,7 +43,7 @@ public class LexResponseWithConfirmIntentDialogActionBuilder {
     }
 
     public LexBotResponse build() {
-        return new DialogActionOnlyLexBotResponse(new ConfirmIntentDialogAction(
+        return new LexBotResponse(new ConfirmIntentDialogAction(
                 dialogActionMessage,
                 intentName,
                 slots,

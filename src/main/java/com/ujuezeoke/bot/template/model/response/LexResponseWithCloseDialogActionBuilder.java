@@ -1,11 +1,14 @@
 package com.ujuezeoke.bot.template.model.response;
 
-import com.ujuezeoke.bot.template.model.response.model.LexBotResponse;
-import com.ujuezeoke.bot.template.model.response.model.dialogaction.*;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.CloseDialogAction;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.FulfillmentState;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessage;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessageContentType;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.GenericAttachments;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.ResponseCard;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Obianuju Ezeoke on 10/06/2017.
@@ -14,6 +17,7 @@ public class LexResponseWithCloseDialogActionBuilder {
     private FulfillmentState fulfillmentState;
     private DialogActionMessage dialogActionMessage;
     private ResponseCard responseCard;
+    private Map<String, String> sessionAttributes = new HashMap<>();
 
     public LexResponseWithCloseDialogActionBuilder withFulfilmentState(FulfillmentState fulfillmentState) {
         this.fulfillmentState = fulfillmentState;
@@ -32,6 +36,7 @@ public class LexResponseWithCloseDialogActionBuilder {
     }
 
     public LexBotResponse build() {
-        return new DialogActionOnlyLexBotResponse(new CloseDialogAction(fulfillmentState, dialogActionMessage, responseCard));
+        return new LexBotResponse(
+                new CloseDialogAction(fulfillmentState, dialogActionMessage, responseCard), sessionAttributes);
     }
 }

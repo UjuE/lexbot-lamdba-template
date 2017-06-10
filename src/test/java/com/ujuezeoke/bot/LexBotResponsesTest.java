@@ -1,5 +1,6 @@
 package com.ujuezeoke.bot;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ujuezeoke.bot.template.model.Slot;
@@ -142,6 +143,28 @@ public class LexBotResponsesTest {
                 "       ] \n" +
                 "     }\n" +
                 "  },\"sessionAttributes\":{}}");
+        assertThat(actualJsonNode, is(expectedJsonNode));
+    }
+
+    @Test
+    public void canSerializeDelegateDialogActionWithResponseCard() throws Exception {
+        LexBotResponse lexBotResponse = new LexBotResponseBuilder()
+                .buildDelegateDialogActionResponse()
+                .withSlot(new Slot("slot-name", "value"))
+                .withSlot(new Slot("slot-name2", "value"))
+                .withSlot(new Slot("slot-name3", "value"))
+                .build();
+
+        final JsonNode actualJsonNode = objectMapper.readTree(objectMapper.writeValueAsString(lexBotResponse));
+        final JsonNode expectedJsonNode = objectMapper.readTree("{\"dialogAction\":{" +
+                "\"slots\":{" +
+                "      \"slot-name\": \"value\",\n" +
+                "      \"slot-name2\": \"value\",\n" +
+                "      \"slot-name3\": \"value\"\n" +
+                "}," +
+                "\"type\":\"Delegate\"" +
+                "},\"sessionAttributes\":{}}");
+
         assertThat(actualJsonNode, is(expectedJsonNode));
     }
 }

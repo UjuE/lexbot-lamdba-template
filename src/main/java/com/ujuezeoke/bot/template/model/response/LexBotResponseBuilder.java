@@ -11,4 +11,8 @@ public class LexBotResponseBuilder {
     public LexResponseWithConfirmIntentDialogActionBuilder buildConfirmIntentDialogActionResponse() {
         return new LexResponseWithConfirmIntentDialogActionBuilder();
     }
+
+    public LexResponseWithDelegateDialogActionBuilder buildDelegateDialogActionResponse() {
+        return new LexResponseWithDelegateDialogActionBuilder();
+    }
 }

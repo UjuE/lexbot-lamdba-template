@@ -6,6 +6,9 @@ import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.Dial
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.GenericAttachments;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.ResponseCard;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Obianuju Ezeoke on 10/06/2017.
  */
@@ -13,6 +16,7 @@ public class LexResponseWithElicitIntentDialogActionBuilder {
 
     private DialogActionMessage message;
     private ResponseCard responseCard;
+    private Map<String, String> sessionAttributes = new HashMap<>();
 
     public LexResponseWithElicitIntentDialogActionBuilder withMessage(DialogActionMessageContentType contentType, String content) {
         message = new DialogActionMessage(contentType, content);
@@ -24,7 +28,12 @@ public class LexResponseWithElicitIntentDialogActionBuilder {
         return this;
     }
 
+    public LexResponseWithElicitIntentDialogActionBuilder withSessionAttribute(String key, String value){
+        sessionAttributes.put(key, value);
+        return this;
+    }
+
     public LexBotResponse build() {
-        return new LexBotResponse(new ElicitIntentDialogAction(message, responseCard));
+        return new LexBotResponse(new ElicitIntentDialogAction(message, responseCard), sessionAttributes);
     }
 }

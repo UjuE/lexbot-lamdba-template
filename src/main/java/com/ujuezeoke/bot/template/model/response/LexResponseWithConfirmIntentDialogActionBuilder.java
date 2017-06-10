@@ -7,7 +7,9 @@ import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.ResponseCard;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static java.util.stream.Collectors.toMap;
 
@@ -20,6 +22,7 @@ public class LexResponseWithConfirmIntentDialogActionBuilder {
     private String intentName;
     private List<Slot> slots = new ArrayList<>();
     private ResponseCard responseCard;
+    private Map<String, String> sessionAttributes = new HashMap<>();
 
     public LexResponseWithConfirmIntentDialogActionBuilder withMessage(DialogActionMessageContentType contentType,
                                                                        String content) {
@@ -42,12 +45,17 @@ public class LexResponseWithConfirmIntentDialogActionBuilder {
         return this;
     }
 
+    public LexResponseWithConfirmIntentDialogActionBuilder withSessionAttribute(String key, String value){
+        sessionAttributes.put(key, value);
+        return this;
+    }
+
     public LexBotResponse build() {
         return new LexBotResponse(new ConfirmIntentDialogAction(
                 dialogActionMessage,
                 intentName,
                 slots,
                 responseCard
-        ));
+        ), sessionAttributes);
     }
 }

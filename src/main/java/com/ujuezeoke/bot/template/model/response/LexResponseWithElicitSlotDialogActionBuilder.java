@@ -19,6 +19,7 @@ public class LexResponseWithElicitSlotDialogActionBuilder {
     private String intentName;
     private Map<String, Object> slots = new HashMap<>();
     private String slotToElicit;
+    private Map<String, String> sessionAttributes = new HashMap<>();
 
     public LexResponseWithElicitSlotDialogActionBuilder withMessage(DialogActionMessageContentType contentType, String content) {
         message = new DialogActionMessage(contentType, content);
@@ -45,6 +46,11 @@ public class LexResponseWithElicitSlotDialogActionBuilder {
         return this;
     }
 
+    public LexResponseWithElicitSlotDialogActionBuilder withSessionAttribute(String key, String value){
+        sessionAttributes.put(key, value);
+        return this;
+    }
+
     public LexBotResponse build() {
         return new LexBotResponse(new ElicitSlotDialogAction(
                 message,
@@ -52,6 +58,6 @@ public class LexResponseWithElicitSlotDialogActionBuilder {
                 slots,
                 slotToElicit,
                 responseCard
-        ));
+        ), sessionAttributes);
     }
 }

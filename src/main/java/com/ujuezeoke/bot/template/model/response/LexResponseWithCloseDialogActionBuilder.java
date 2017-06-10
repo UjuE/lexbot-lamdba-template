@@ -35,6 +35,11 @@ public class LexResponseWithCloseDialogActionBuilder {
         return this;
     }
 
+    public LexResponseWithCloseDialogActionBuilder withSessionAttribute(String key, String value){
+        sessionAttributes.put(key, value);
+        return this;
+    }
+
     public LexBotResponse build() {
         return new LexBotResponse(
                 new CloseDialogAction(fulfillmentState, dialogActionMessage, responseCard), sessionAttributes);

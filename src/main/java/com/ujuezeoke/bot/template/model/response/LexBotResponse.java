@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * Created by Obianuju Ezeoke on 10/06/2017.
  */
+@SuppressWarnings("unused")
 public class LexBotResponse implements Serializable {
     private final DialogAction dialogAction;
     private final Map<String, String> sessionAttributes;

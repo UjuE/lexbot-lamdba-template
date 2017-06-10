@@ -49,7 +49,7 @@ AWSCredentials awsCredentials = fetchAwsCredentials()
 publishing {
     repositories {
         maven {
-            url "s3://repo.ujuezeoke.com/snapshot"
+            url "s3://repo.ujuezeoke.com/releases"
             credentials(AwsCredentials) {
                 accessKey = awsCredentials.AWSAccessKeyId
                 secretKey = awsCredentials.AWSSecretKey

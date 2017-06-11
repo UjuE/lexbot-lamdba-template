@@ -2,9 +2,7 @@ package com.ujuezeoke.bot.template.model.response;
 
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.DelegateDialogAction;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,15 +10,21 @@ import java.util.Map;
  */
 public class LexResponseWithDelegateDialogActionBuilder {
 
-    private List<Slot> slots = new ArrayList<>();
+    private Map<String, Object> slots = new HashMap<>();
     private Map<String, String> sessionAttributes = new HashMap<>();
 
     public LexResponseWithDelegateDialogActionBuilder withSlot(Slot slot) {
-        slots.add(slot);
+        slots.put(slot.getKey(), slot.getValue());
         return this;
     }
 
-    public LexResponseWithDelegateDialogActionBuilder withSessionAttribute(String key, String value){
+
+    public LexResponseWithDelegateDialogActionBuilder withSlots(Map<String, Object> slots) {
+        slots.putAll(slots);
+        return this;
+    }
+
+    public LexResponseWithDelegateDialogActionBuilder withSessionAttribute(String key, String value) {
         sessionAttributes.put(key, value);
         return this;
     }

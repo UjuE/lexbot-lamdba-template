@@ -6,12 +6,8 @@ import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.Dial
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.GenericAttachments;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.ResponseCard;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import static java.util.stream.Collectors.toMap;
 
 /**
  * Created by Obianuju Ezeoke on 10/06/2017.
@@ -20,7 +16,7 @@ public class LexResponseWithConfirmIntentDialogActionBuilder {
 
     private DialogActionMessage dialogActionMessage;
     private String intentName;
-    private List<Slot> slots = new ArrayList<>();
+    private Map<String, Object> slots = new HashMap<>();
     private ResponseCard responseCard;
     private Map<String, String> sessionAttributes = new HashMap<>();
 
@@ -36,7 +32,12 @@ public class LexResponseWithConfirmIntentDialogActionBuilder {
     }
 
     public LexResponseWithConfirmIntentDialogActionBuilder withSlot(Slot slot) {
-        slots.add(slot);
+        slots.put(slot.getKey(), slot.getValue());
+        return this;
+    }
+
+    public LexResponseWithConfirmIntentDialogActionBuilder withSlots(Map<String, Object> slots) {
+        slots.putAll(slots);
         return this;
     }
 

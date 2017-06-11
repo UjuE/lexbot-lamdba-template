@@ -41,6 +41,11 @@ public class LexResponseWithElicitSlotDialogActionBuilder {
         return this;
     }
 
+    public LexResponseWithElicitSlotDialogActionBuilder withSlots(Map<String, Object> slots) {
+        slots.putAll(slots);
+        return this;
+    }
+
     public LexResponseWithElicitSlotDialogActionBuilder withSlotToElicit(String slotToElicit) {
         this.slotToElicit = slotToElicit;
         return this;

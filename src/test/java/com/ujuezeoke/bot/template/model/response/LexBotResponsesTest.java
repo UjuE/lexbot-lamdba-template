@@ -2,14 +2,13 @@ package com.ujuezeoke.bot.template.model.response;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.Buttons;
-import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessageContentType;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.FulfillmentState;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.message.DialogActionMessageContentType;
+import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.Buttons;
 import com.ujuezeoke.bot.template.model.response.model.dialogaction.responsecard.GenericAttachments;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.net.URL;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -57,10 +56,10 @@ public class LexBotResponsesTest {
                 .withMessage(DialogActionMessageContentType.PlainText,
                         "Message to convey to the user. For example, Thanks, your pizza has been ordered.")
                 .withResponseCard(1, new GenericAttachments("card-title", "card-sub-title",
-                        new URL("http://localhost/img.jpg"),
-                        new URL("http://localhost/img"),
+                        "http://localhost/img.jpg",
+                        "http://localhost/img",
                         new Buttons("button-text", "Value sent to server on button click")
-                        ))
+                ))
                 .build();
 
 
@@ -103,8 +102,8 @@ public class LexBotResponsesTest {
                 .withIntentName("intent-name")
                 .withSlot(new Slot("slot-name", "value"))
                 .withResponseCard(1, new GenericAttachments("card-title", "card-sub-title",
-                        new URL("http://localhost/img.jpg"),
-                        new URL("http://localhost/img"),
+                        "http://localhost/img.jpg",
+                        "http://localhost/img",
                         new Buttons("button-text", "Value sent to server on button click")
                 ))
                 .build();
@@ -171,8 +170,8 @@ public class LexBotResponsesTest {
                 .withMessage(DialogActionMessageContentType.SSML,
                         "Message to convey to the user. For example, What can I help you with?")
                 .withResponseCard(1, new GenericAttachments("card-title", "card-sub-title",
-                        new URL("http://localhost/img.jpg"),
-                        new URL("http://localhost/img"),
+                        "http://localhost/img.jpg",
+                        "http://localhost/img",
                         new Buttons("button-text", "Value sent to server on button click")
                 ))
                 .build();
@@ -220,8 +219,8 @@ public class LexBotResponsesTest {
                 .withSlot(new Slot("slot-name3", "value"))
                 .withSlotToElicit("slot-name")
                 .withResponseCard(1, new GenericAttachments("card-title", "card-sub-title",
-                        new URL("http://localhost/img.jpg"),
-                        new URL("http://localhost/img"),
+                        "http://localhost/img.jpg",
+                        "http://localhost/img",
                         new Buttons("button-text", "Value sent to server on button click")
                 ))
                 .build();

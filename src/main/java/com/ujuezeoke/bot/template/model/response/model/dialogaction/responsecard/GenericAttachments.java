@@ -10,14 +10,14 @@ import java.net.URL;
 public class GenericAttachments {
     private final String title;
     private final String subTitle;
-    private final URL imageUrl;
-    private final URL attachmentLinkUrl;
+    private final String imageUrl;
+    private final String attachmentLinkUrl;
     private final Buttons[] buttons;
 
     public GenericAttachments(String title,
                               String subTitle,
-                              URL imageUrl,
-                              URL attachmentLinkUrl,
+                              String imageUrl,
+                              String attachmentLinkUrl,
                               Buttons... buttons) {
         this.title = title;
         this.subTitle = subTitle;
@@ -35,11 +35,11 @@ public class GenericAttachments {
     }
 
     public String getImageUrl() {
-        return imageUrl.toExternalForm();
+        return imageUrl;
     }
 
     public String getAttachmentLinkUrl() {
-        return attachmentLinkUrl.toExternalForm();
+        return attachmentLinkUrl;
     }
 
     public Buttons[] getButtons() {

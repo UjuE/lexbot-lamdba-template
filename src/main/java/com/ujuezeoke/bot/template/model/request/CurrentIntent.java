@@ -32,4 +32,16 @@ public class CurrentIntent {
     public ConfirmationStatus getConfirmationStatus() {
         return confirmationStatus;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSlots(Map<String, Object> slots) {
+        this.slots = slots;
+    }
+
+    public void setConfirmationStatus(ConfirmationStatus confirmationStatus) {
+        this.confirmationStatus = confirmationStatus;
+    }
 }

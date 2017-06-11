@@ -24,4 +24,16 @@ public class Bot {
     public String getVersion() {
         return version;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
 }

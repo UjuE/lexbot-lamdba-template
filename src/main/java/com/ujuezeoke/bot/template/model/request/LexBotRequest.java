@@ -71,4 +71,36 @@ public class LexBotRequest {
     public Map<String, Object> getSessionAttributes() {
         return sessionAttributes;
     }
+
+    public void setCurrentIntent(CurrentIntent currentIntent) {
+        this.currentIntent = currentIntent;
+    }
+
+    public void setBot(Bot bot) {
+        this.bot = bot;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setInputTranscript(String inputTranscript) {
+        this.inputTranscript = inputTranscript;
+    }
+
+    public void setInvocationSource(InvocationSource invocationSource) {
+        this.invocationSource = invocationSource;
+    }
+
+    public void setOutputDialogMode(OutputDialogMode outputDialogMode) {
+        this.outputDialogMode = outputDialogMode;
+    }
+
+    public void setMessageVersion(String messageVersion) {
+        this.messageVersion = messageVersion;
+    }
+
+    public void setSessionAttributes(Map<String, Object> sessionAttributes) {
+        this.sessionAttributes = sessionAttributes;
+    }
 }

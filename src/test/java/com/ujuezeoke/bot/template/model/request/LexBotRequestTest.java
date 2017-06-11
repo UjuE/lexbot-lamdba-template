@@ -32,8 +32,34 @@ public class LexBotRequestTest {
                 Collections.emptyMap()
         );
 
-        final Object readValue = objectMapper.reader(LexBotRequest.class)
+        final LexBotRequest readValue = objectMapper.reader(LexBotRequest.class)
                 .readValue(src);
+
+        readValue.getBot();
+        assertTrue(readValue.getClass().isAssignableFrom(LexBotRequest.class));
+    }
+
+    @Test
+    public void canBeDeSerializedFromExpectedLexBotRequestWithoutBotAlias() throws IOException {
+        final ObjectMapper objectMapper = new ObjectMapper();
+        final String src = lexRequestWith(
+                "SomeIntent",
+                Collections.emptyMap(),
+                "None",
+                "",
+                "",
+                "",
+                "",
+                "FulfillmentCodeHook",
+                "Voice",
+                "",
+                Collections.emptyMap()
+        );
+
+        final LexBotRequest readValue = objectMapper.reader(LexBotRequest.class)
+                .readValue(src);
+
+        final Bot bot = readValue.getBot();
 
         assertTrue(readValue.getClass().isAssignableFrom(LexBotRequest.class));
     }

@@ -64,6 +64,12 @@ public class RequestTemplateHelper {
                 "    \"version\": \"" + botVersion + "\"\n";
     }
 
+    private static String withBotDetails(final String botName, final String botVersion) {
+        return "    \"name\": \"" + botName + "\",\n" +
+                "    \"alias\": null,\n" +
+                "    \"version\": \"" + botVersion + "\"\n";
+    }
+
     private static String withKeyValuePairs(Map<String, String> slots) {
         return slots.entrySet()
                 .stream()
@@ -82,6 +88,21 @@ public class RequestTemplateHelper {
                                         Map<String, String> sessionAttributes) {
         return format(REQUEST_TEMPLATE_HELPER, currentIntent, withKeyValuePairs(slots),
                 confirmationStatus, withBotDetails(botName, botAlias, botVersion), userId,
+                inputTranscript, invocationSource, outputDialogMode, messageVersion,
+                withKeyValuePairs(sessionAttributes),"");
+    }
+
+    public static String lexRequestWith(String currentIntent,
+                                        Map<String, String> slots,
+                                        String confirmationStatus, String botName,
+                                        String botVersion,
+                                        String userId, String inputTranscript,
+                                        String invocationSource,
+                                        String outputDialogMode,
+                                        String messageVersion,
+                                        Map<String, String> sessionAttributes) {
+        return format(REQUEST_TEMPLATE_HELPER, currentIntent, withKeyValuePairs(slots),
+                confirmationStatus, withBotDetails(botName, botVersion), userId,
                 inputTranscript, invocationSource, outputDialogMode, messageVersion,
                 withKeyValuePairs(sessionAttributes),"");
     }

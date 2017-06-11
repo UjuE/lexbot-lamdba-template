@@ -1,24 +1,22 @@
 package com.ujuezeoke.bot.template.model.request;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Created by Obianuju Ezeoke on 09/06/2017.
  */
 public class CurrentIntent {
-    private String name;
-    private Map<String, Object> slots;
-    private ConfirmationStatus confirmationStatus;
+    private final String name;
+    private final Map<String, Object> slots;
+    private final ConfirmationStatus confirmationStatus;
 
     //For Jackson
     @SuppressWarnings("unused")
-    public CurrentIntent() {
-    }
-
-    public CurrentIntent(String name, Map<String, Object> slots, ConfirmationStatus confirmationStatus) {
+    public CurrentIntent(String name, Map<String, Object> slots, String confirmationStatus) {
         this.name = name;
         this.slots = slots;
-        this.confirmationStatus = confirmationStatus;
+        this.confirmationStatus = ConfirmationStatus.valueOf(confirmationStatus);
     }
 
     public String getName() {
@@ -33,15 +31,19 @@ public class CurrentIntent {
         return confirmationStatus;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public static CurrentIntent from(HashMap<String, Object> lexBotRequest) {
+        Map<String, Object> currentIntent = (Map<String, Object>) lexBotRequest.get("currentIntent");
+        return new CurrentIntent(currentIntent.get("name").toString(),
+                (Map<String, Object>) currentIntent.get("slots"),
+                currentIntent.get("confirmationStatus").toString());
     }
 
-    public void setSlots(Map<String, Object> slots) {
-        this.slots = slots;
-    }
-
-    public void setConfirmationStatus(ConfirmationStatus confirmationStatus) {
-        this.confirmationStatus = confirmationStatus;
+    @Override
+    public String toString() {
+        return "CurrentIntent{" +
+                "name='" + name + '\'' +
+                ", slots=" + slots +
+                ", confirmationStatus=" + confirmationStatus +
+                '}';
     }
 }
